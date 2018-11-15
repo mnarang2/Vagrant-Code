@@ -1,0 +1,17 @@
+---
+
+- name: This is our first Playbook
+  hosts: localhost
+  become: yes
+  tasks:
+
+  - name: Install a package For Demo
+    apt:
+      name: apache2
+      state: absent
+    register: InstallOutput
+
+
+  - name: Print the output
+    debug:
+      var: InstallOutput
